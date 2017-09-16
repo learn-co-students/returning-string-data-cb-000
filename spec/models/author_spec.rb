@@ -12,5 +12,8 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
+  author1 = Author.create(name: "Stephen King")
+  author2 = Author.create(name: "Ariana Huffington")
+  author3 = Author.create(name: "Horse Ebooks")
 end
