@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :body]
 
   def index
     @posts = Post.all
@@ -26,13 +26,17 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def body
+    # render plain text, rails implicitly renders a template
+    render plain: @post.description
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:title, :description)
   end
