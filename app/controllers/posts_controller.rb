@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update,:body]
 
   def index
     @posts = Post.all
@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   def show
   end
 
+  def body
+    render plain: @post.description
+  end
   def new
     @post = Post.new
   end
